@@ -15,8 +15,8 @@ const StackList: React.FC = () => {
 
     return (
         <ul className='flex flex-wrap justify-center mt-5 gap-2 list-none'>
-            {stacks.map(title => (
-                <StackBlock title={title} />
+            {stacks.map((title, index) => (
+                <StackBlock key={index} title={title} />
             ))}
         </ul>
     )

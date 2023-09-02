@@ -10,8 +10,8 @@ const Heading: React.FC<Heading> = ({ title, description, children }) => {
                 <h1 className='text-2xl font-bold flex-grow text-center'>{title}</h1>
             </div>
             <div className='space-y-2'>
-            {description?.split('\n').map(text => (
-                <p className='px-2'>
+            {description?.split('\n').map((text,index) => (
+                <p  key={index} className='px-2'>
                     {text}
                 </p>
             ))}
