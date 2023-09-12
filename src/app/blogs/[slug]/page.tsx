@@ -7,11 +7,11 @@ import { PostgrestSingleResponse } from "@supabase/supabase-js";
 
 
 export async function generateStaticParams() {
-    const { data: posts }: PostgrestSingleResponse<TBlogPost[]> = await supabase.rpc('get_blogs_with_files1')
+    const { data: posts = [] }: PostgrestSingleResponse<TBlogPost[]> = await supabase.rpc('get_blogs_with_files1')
 
     return posts?.map(posts => ({
         slug: posts.blog_slug,
-    }))
+    })) ?? []
 }
 
 

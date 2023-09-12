@@ -5,6 +5,7 @@ import supabase from '@/core/utils/supabase';
 import { PostgrestSingleResponse } from '@supabase/supabase-js';
 import { TBlogPost, TBlogDetail } from './Blog.interface';
 import React from 'react';
+import Image from 'next/image';
 
 const BlogDetail: React.FC<TBlogDetail> = async ({ slug }) => {
     const { data: post }: PostgrestSingleResponse<TBlogPost> = await supabase.rpc('get_blogs_with_files1').eq('blog_slug', slug).single()
@@ -27,7 +28,7 @@ const BlogDetail: React.FC<TBlogDetail> = async ({ slug }) => {
                     <h1 className="text-2xl font-bold flex-grow text-center">{post.blog_title}</h1>
                 </div>
                 <div className="mb-8">
-                    <img src={post.thumbnail} alt={post.blog_title} className="w-full h-auto rounded" />
+                    <Image width={1200} height={320} src={post.thumbnail} alt={post.blog_title} className="w-full h-auto rounded" />
                 </div>
                 <div className="space-y-4 prose lg:prose-lg">
                     <ReactMarkdown>{post.blog_content}</ReactMarkdown>
