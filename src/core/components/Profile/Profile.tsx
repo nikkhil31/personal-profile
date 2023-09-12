@@ -18,7 +18,7 @@ const Profile: React.FC = () => {
                 <h3 className='text-xl font-semibold mt-1 text-[#aaa]'>India</h3>
                 <ul className='flex justify-center space-x-4 mt-4 text-lg'>
                     <li>
-                        <a href='mailto:nikhilimbad@gmail.com'>
+                        <a href='mailto:info@nikkhil.dev'>
                             <MdEmail size='30px' />
                         </a>
                     </li>

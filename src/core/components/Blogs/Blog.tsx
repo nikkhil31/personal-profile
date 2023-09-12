@@ -1,8 +1,10 @@
 import React from 'react'
 import { Heading } from '../Common'
 import BlogList from './Blog.List'
+import supabase from '@/core/utils/supabase'
 
-const Blog = () => {
+const Blog = async () => {
+
     return (
         <Heading title={'Blog'}>
             <BlogList />

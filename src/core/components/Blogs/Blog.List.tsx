@@ -1,23 +1,31 @@
 import React from 'react'
 import BlogBlock from './Blog.Block'
+import supabase from '@/core/utils/supabase'
+import { TBlogPost } from './Blog.interface'
+import { PostgrestSingleResponse } from '@supabase/supabase-js'
 
-const BlogList = () => {
-    return (
+const BlogList: React.FC = async () => {
+
+    // const { data: blogs } = await supabase.from('blogs').select(`id,title,short_desc`)
+    // const { data: thumbanil } = await supabase.from('files_related_morphs').select(`file_id (
+    //     url
+    // )`).match({ related_id:blogs }).single()
+
+    const { data: blogs }:PostgrestSingleResponse<TBlogPost[]> = await supabase.rpc('get_blogs_with_files1')
+
+
+
+    return blogs && (
         <div className='space-y-4'>
-            <BlogBlock
-                image={'https://via.placeholder.com/279x220'}
-                title={'This is the Blog Title'}
-                description='This is a short description of the blog. It gives a quick overview of
-                    what the blog is all about.'
-            />
-
-
-            <BlogBlock
-                image={'https://via.placeholder.com/279x220'}
-                title={'This is the Blog Title'}
-                description='This is a short description of the blog. It gives a quick overview of
-                    what the blog is all about.'
-            />
+            {blogs.map((blog) => (
+                <BlogBlock
+                    key={blog.blog_id}
+                    slug={blog.blog_slug}
+                    image={blog.thumbnail}
+                    title={blog.blog_title}
+                    description={blog.blog_short_desc}
+                />
+            ))}
         </div>
     )
 }
