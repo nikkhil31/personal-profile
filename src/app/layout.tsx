@@ -6,8 +6,8 @@ import GoogleAnalytics from '@/core/components/GoogleAnalytics/GoogleAnalytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Experienced Full Stack Developer for Freelance Opportunities | Specializing in MERN, OpenAi APIs & More',
-  description: 'Seasoned Full Stack Developer with over 4 years of experience in scalable software solutions. Specialized in React, AWS, and more. Open for freelance opportunities. Committed to delivering innovation and quality. Contact now to discuss your project needs.',
+  title: 'Nikhil Limbad - Freelance Full Stack Developer in India | Expert in NextJS, React, AWS, Langchain',
+  description: 'Nikhil Limbad is an experienced Freelance Full Stack Developer in India, specializing in NextJS, React, AWS, and OpenAI integration. Over 4 years of experience in diverse sectors. Open for remote freelance opportunities.',
 }
 
 export default function RootLayout({
@@ -17,6 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
+      <head>
+        <meta name="keywords" content="Nikhil Limbad, Freelance Full Stack Developer, Freelance Full Stack Developer India, Expert NextJS Developer, Experienced Full Stack Developer, React, AWS, OpenAI" />
+      </head>
       <body className={inter.className}>
 
         <GoogleAnalytics />
